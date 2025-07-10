@@ -1,0 +1,250 @@
+/* frontend/src/styles/ClientBooking.css */
+.client-booking-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.client-booking-container h1 {
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+
+.client-booking-container h2 {
+  color: var(--accent-color);
+  margin-top: 25px;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.client-booking-container h3 {
+  color: var(--light-text-color);
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+/* Formulários e Inputs */
+.client-info-form, .booking-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.client-info-form input,
+.booking-details input,
+.booking-details select {
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  width: calc(100% - 30px); /* Ajusta para padding */
+  box-sizing: border-box;
+}
+
+.client-booking-container button {
+  width: auto;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  margin-left: 0; /* Remove margin-right padrão */
+}
+
+.client-booking-container button + button {
+  margin-left: 15px; /* Espaçamento entre botões */
+}
+
+/* Seleção de Serviço */
+.service-selection {
+  margin-bottom: 25px;
+}
+
+/* Date Picker */
+.date-picker input[type="date"] {
+  cursor: pointer;
+}
+
+/* Time Slots Grid */
+.time-slots {
+  margin-top: 30px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+}
+
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.time-slot-button {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  padding: 10px 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap; /* Impede que o texto quebre */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-right: 0; /* Override do estilo geral de botão */
+}
+
+.time-slot-button:hover:not(:disabled) {
+  background-color: #e0e0e0;
+  border-color: var(--accent-color);
+}
+
+.time-slot-button.selected {
+  background-color: var(--accent-color);
+  color: var(--white);
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.time-slot-button.locked {
+  background-color: #ffebcd; /* Cor para bloqueado temporariamente */
+  color: #856404;
+  border-color: #ffc107;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.time-slot-button.booked {
+  background-color: #d4edda; /* Cor para agendado permanentemente */
+  color: #155724;
+  border-color: #28a745;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.time-slot-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Confirmação de Agendamento */
+.booking-success {
+  padding: 30px;
+  background-color: #e6ffe6;
+  border: 1px solid var(--success-color);
+  border-radius: 10px;
+  color: #155724;
+  margin-top: 30px;
+}
+
+.booking-success h2 {
+  color: var(--success-color);
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.booking-success p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.booking-success button {
+  background-color: var(--success-color);
+}
+
+.booking-success button:hover {
+  background-color: #218838;
+}
+
+/* Informações de agendamento passado */
+.past-appointment-info {
+  background-color: #f0f8ff;
+  border: 1px solid #a8d7ff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  text-align: left;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.past-appointment-info h2 {
+  margin-top: 0;
+  color: var(--accent-color);
+  font-size: 1.5rem;
+}
+
+.past-appointment-info p {
+  margin: 8px 0;
+  color: var(--text-color);
+}
+
+.past-appointment-info hr {
+  border: 0;
+  border-top: 1px dashed var(--border-color);
+  margin: 20px 0;
+}
+
+.past-appointment-info .new-booking-button {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.past-appointment-info .new-booking-button:hover {
+  background-color: #555;
+}
+
+/* Responsividade para o cliente */
+@media (max-width: 600px) {
+  .client-booking-container {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .client-booking-container h1 {
+    font-size: 2rem;
+  }
+
+  .client-booking-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .client-info-form input,
+  .booking-details input,
+  .booking-details select {
+    width: calc(100% - 20px); /* Ajuste para telas menores */
+  }
+
+  .client-booking-container button {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .client-booking-container button + button {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  .time-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+  }
+
+  .time-slot-button {
+    font-size: 0.85rem;
+    padding: 8px 3px;
+  }
+}
